@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_margin="10dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Home Page"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textSize="33sp"
+        android:layout_marginTop="50dp"
+        android:textColor="#FF9800"
+        android:id="@+id/welcome_text"
+        />
+    <TextView
+        android:id="@+id/tall_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TALL: "
+        android:textColor="@color/black"
+        android:layout_below="@+id/logout_btn"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        />
+    <TextView
+        android:id="@+id/weight_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WEIGHT: "
+        android:textColor="@color/black"
+        android:layout_below="@+id/tall_text_view"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        />
+    <TextView
+        android:id="@+id/name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME: "
+        android:textColor="@color/black"
+        android:layout_below="@+id/weight_text_view"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        />
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/black"
+        android:text="Log Out"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
+</RelativeLayout>
