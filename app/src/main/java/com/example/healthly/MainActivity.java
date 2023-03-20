@@ -1,46 +1,54 @@
 package com.example.healthly;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.firebase.auth.FirebaseAuth;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
 import android.content.Intent;
-import com.google.firebase.auth.FirebaseUser;
+import android.os.Bundle;
+import android.view.MenuItem;
 
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mauth;
-    private Button logout_btn;
+
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-        logout_btn=findViewById(R.id.logout_btn);
-        mauth=FirebaseAuth.getInstance();
-        logout_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logout();
 
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home_menu_item:
+                        // jestem tutaj wiec nie musze nic robic
+                        break;
+                    case R.id.dishes_menu_item:
+                        // dodaj kod do obsługi kliknięcia w pozycję menu "Dishes"
+                        break;
+                    case R.id.workout_menu_item:
+                        // dodaj kod do obsługi kliknięcia w pozycję menu "Workout"
+                        break;
+                    case R.id.others_menu_item:
+                        // dodaj kod do obsługi kliknięcia w pozycję menu "Others"
+                        break;
+                    case R.id.profile_menu_item:
+                        Intent intent = new Intent(MainActivity.this, ProfileBoardActivity.class);
+                        startActivity(intent);
+                        break;
+                }
+                return true;
             }
         });
+
+
     }
 
-    @Override
-    public  void onStart(){
-        super.onStart();
-        FirebaseUser currentUser=mauth.getCurrentUser();
-        if (currentUser==null){
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
-        }
-    }
-    public void logout() {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(MainActivity.this,LoginActivity.class));
-    }
+
+
+
 }

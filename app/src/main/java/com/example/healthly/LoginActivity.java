@@ -19,8 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private FirebaseAuth mauth;
-    private EditText mail,password;
+    private FirebaseAuth mAuth;
+    private EditText editText_mail,editText_password;
     private Button login_btn;
     private TextView reg_text;
     @SuppressLint("MissingInflatedId")
@@ -29,9 +29,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mauth=FirebaseAuth.getInstance();
-        mail=findViewById(R.id.login_mail);
-        password=findViewById(R.id.login_password);
+
+        mAuth=FirebaseAuth.getInstance();
+        editText_mail=findViewById(R.id.login_mail);
+        editText_password=findViewById(R.id.login_password);
         login_btn=findViewById(R.id.login_btn);
         reg_text=findViewById(R.id.register_text);
 
@@ -51,24 +52,23 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     private void login() {
-        String user= mail.getText().toString().trim();
-        String pass= password.getText().toString().trim();
-        if (user.isEmpty()){
-            mail.setError("Email can not be empty..");
+        String email= editText_mail.getText().toString().trim();
+        String pass= editText_password.getText().toString().trim();
+        if (email.isEmpty()){
+            editText_mail.setError("Email can not be empty..");
 
         }if (pass.isEmpty()){
-            password.setError("Password can not be empty..");
+            editText_password.setError("Password can not be empty..");
         }
         else
         {
-            mauth.signInWithEmailAndPassword(user,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    if (task.isSuccessful())
-                    {
+                    if (task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "Login Successfully..", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        startActivity(new Intent(LoginActivity.this, ProfileBoardActivity.class));
 
 
                     }

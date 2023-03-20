@@ -4,61 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:layout_margin="10dp"
     tools:context=".MainActivity">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Home Page"
+        android:id="@+id/main_text"
+        android:text="Choose your plan:"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
         android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:textSize="33sp"
-        android:layout_marginTop="50dp"
-        android:textColor="#FF9800"
-        android:id="@+id/welcome_text"
-        />
-    <TextView
-        android:id="@+id/tall_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TALL: "
         android:textColor="@color/black"
-        android:layout_below="@+id/logout_btn"
-        android:layout_centerHorizontal="true"
-        android:textSize="32sp"
+        android:layout_marginTop="20sp"
         />
-    <TextView
-        android:id="@+id/weight_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WEIGHT: "
-        android:textColor="@color/black"
-        android:layout_below="@+id/tall_text_view"
-        android:layout_centerHorizontal="true"
-        android:textSize="32sp"
+
+    <ImageView
+        android:id="@+id/food_image"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/main_text"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/dieta_image"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dieta"
         />
-    <TextView
-        android:id="@+id/name_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NAME: "
-        android:textColor="@color/black"
-        android:layout_below="@+id/weight_text_view"
-        android:layout_centerHorizontal="true"
-        android:textSize="32sp"
+    <ImageView
+        android:id="@+id/workout_image"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/food_image"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/dieta_image"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/workout"
         />
-    <Button
-        android:id="@+id/logout_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/welcome_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:backgroundTint="@color/black"
-        android:text="Log Out"
-        android:textColor="@color/white"
-        android:textSize="22sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/workout_image"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/dieta_image"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/heal"
+        />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="?attr/actionBarSize"
+
+            />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/black"
+            app:menu="@menu/bottom_navigation_menu"
+            android:background="#EFEFEF"
+            app:itemIconSize="@dimen/bottom_nav_icon_size"
+            app:labelVisibilityMode="unlabeled"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </RelativeLayout>
+
+
